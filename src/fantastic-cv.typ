@@ -1,63 +1,55 @@
 
+#let render_space_between_highlight = -0.5em
+#let render_space_between_entry = -0.5em
+#let render_space_between_sections = -0.5em
+
 #let config(
-  paper: "a4",
-  top-margin: 0.4in,
-  bottom-margin: 0.2in,
-  left-margin: 0.3in,
-  right-margin: 0.3in,
   font: "New Computer Modern",
-  font-size: 11pt,
-  personal-info-font-size: 10.5pt,
-  author-name: "",
-  author-position: center,
-  personal-info-position: center,
-  phone: "",
-  location: "",
-  email: "",
-  website: "",
-  linkedin-user-id: "",
-  github-username: "",
+  font_size: 10pt,
+  page_paper: "a4",
+  margin: (
+    top: 0.5in,
+    bottom: 0.5in,
+    left: 0.5in,
+    right: 0.5in,
+  ),
+  accent_color: "#26428b",
+  space_between_sections: -0.5em,
+  space_between_highlight: -0.5em,
   body
 ) = {
-
-  set document(
-    author: name,
-    title: name,
-    description: "Resume of " + name,
-    keywords: "resume, cv, curriculum vitae",
-  )
+  let font_size_title = font_size * 1.5
+  let font_size_section = font_size * 1.3
+  let font_size_entry = font_size * 1.1
 
   set text(
-    font: render_font,
-    size: render_size,
+    font: font,
+    size: font_size,
     lang: "en",
     ligatures: false,
   )
 
   set page(
-    margin: render_margin,
-    paper: render_page_paper,
+    margin: margin,
+    paper: page_paper,
   )
 
   set par(justify: true)
 
   show link: underline
 
-  show heading.where(level: 2): it => [
-    #pad(top: 0pt, bottom: -10pt, [#smallcaps(it.body)])
-    #line(length: 100%, stroke: 1pt)
-  ]
+  show heading: set text(fill: rgb(accent_color))
 
-  show heading: set text(fill: rgb(render_accent_color))
+  show link: set text(fill: rgb(accent_color))
 
-  show link: set text(fill: rgb(render_accent_color))
+  // name heading
+  show heading.where(level: 1): it => [#text(font_size_title, weight: "extrabold")[#it]]
 
-  show heading.where(level: 1): it => block(width: 100%)[
-    #set text(render_size_section, weight: "bold")
-    #smallcaps(it.body)
-    #v(-1em)
-    #line(length: 100%, stroke: stroke(thickness: 0.4pt))
-  ]
+  // section heading
+  show heading.where(level: 2): it => [#text(font_size_section, weight: "bold")[#it]]
+
+  // entry heading
+  show heading.where(level: 3): it => [#text(size: font_size_entry, weight: "semibold")[#it]]
 
   body
 }
@@ -78,15 +70,63 @@
   bottom_right: "", // bottom right
 ) = {
   [
-    #text(size: render_size_entry, weight: "semibold")[#main] #h(1fr) #dates \
+    === #main #h(1fr) #dates \
     #description #h(1fr) #bottom_right
   ]
 }
 
 #let _section(title, body) = {
-  [= #title]
+ [ == #smallcaps(title)]
+ v(-0.5em)
+ line(length: 100%, stroke: stroke(thickness: 0.4pt))
+  v(-0.5em)
   body
   v(render_space_between_sections)
+}
+
+
+#let section_basic_info(
+  name: "",
+  location: "",
+  phone: "",
+  email: "",
+  url: "",
+  profiles: [],
+) = {
+  set document(
+    author: name,
+    title: name,
+    description: "Resume of " + name,
+    keywords: "resume, cv, curriculum vitae",
+  )
+
+  align(
+    left,
+    [= #name #h(1fr) #location],
+  )
+
+
+  pad(
+    top: 0.25em,
+    [
+      #{
+        let items = (
+          phone,
+          link(email)[#email],
+          link(url)[#url],
+        )
+        items.filter(x => x != none).join("  |  ")
+        "  |  "
+        profiles
+          .map(profile => {
+            profile.network + ": "
+            let url_concat = profile.url + "/" + profile.username
+            link(url_concat)[#url_concat]
+          })
+          .join("  |  ")
+      }
+    ],
+  )
 }
 
 #let section_education(_educations) = {
@@ -114,7 +154,7 @@
           - #emph[Selected coursework]: #education.courses.join(", ")
         ]
       })
-      .join("")
+      .join(v(render_space_between_entry))
   }
   _section("Education", section_body)
 }
@@ -143,7 +183,7 @@
           #work.highlights.map(it => [- #it]).join(v(render_space_between_highlight))
         ]
       })
-      .join("")
+      .join(v(render_space_between_entry))
   }
   _section("Work", section_body)
 }
@@ -175,7 +215,7 @@
           #project.highlights.map(it => [- #it]).join(v(render_space_between_highlight))
         ]
       })
-      .join("")
+      .join(v(render_space_between_entry))
   }
   _section("Projects", section_body)
 }
@@ -203,7 +243,7 @@
           #volunteer.highlights.map(it => [- #it]).join(v(render_space_between_highlight))
         ]
       })
-      .join("")
+      .join(v(render_space_between_entry))
   }
   _section("Volunteering", section_body)
 }
@@ -315,62 +355,3 @@
     })
     .join(v(render_space_between_sections))
 }
-
-#let section_basic_info(
-  name: "",
-  location: "",
-  phone: "",
-  email: "",
-  url: "",
-  profiles: [],
-) = {
-  #align(
-    left,
-    [
-      #upper(
-        text(render_size_title, weight: "extrabold")[
-          #name #h(1fr) #location],
-      )
-      #v(-1em)
-    ],
-  )
-
-
-  #pad(
-    top: 0.25em,
-    [
-      #{
-        let items = (
-          phone,
-          link(email)[#email],
-          link(url)[#url],
-        )
-        items.filter(x => x != none).join("  |  ")
-        "  |  "
-        profiles
-          .map(profile => {
-            profile.network + ": "
-            let url_concat = profile.url + "/" + profile.username
-            link(url_concat)[#url_concat]
-          })
-          .join("  |  ")
-      }
-    ],
-  )
-}
-
-#section_education(educations)
-
-#section_work(works)
-
-#section_project(projects)
-
-#section_volunteer(volunteers)
-
-#section_award(awards)
-
-#section_certificate(certificates)
-
-#section_publication(publications)
-
-#sections_custom(custom_sections)

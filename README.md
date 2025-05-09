@@ -1,69 +1,32 @@
-# The `my-package` Package
-<div align="center">Version 0.1.0</div>
+# Fantastic Resume Template 🚀
+<div align="center">✨ Version 0.1.0 ✨</div>
 
-This is a template for a comprehensive and compact resume. Inspiration is taken from [basic-resume](https://typst.app/universe/package/basic-resume/). The data required to fill the template mirrors the data structure of the [JSON Resume](https://jsonresume.org/) project. The template is designed to be easily customizable, allowing users to modify the layout and design to suit their personal style.
+This is a template for a comprehensive and compact resume. Inspiration is taken from [basic-resume](https://typst.app/universe/package/basic-resume/) 📄. The data required to fill the template mirrors the data structure of the [JSON Resume](https://jsonresume.org/) project. The template is designed to be easily customizable, allowing users to modify the layout and design to suit their personal style. 🎨
 
-## Template adaptation checklist
+# Sample Resume 📝
 
-- [ ] Fill out `README.md`
-  - Change the `fantastic-cv` package name, including code snippets
-  - Check section contents and/or delete sections that don't apply
-- [ ] Check and/or replace `LICENSE` by something that suits your needs
-- [ ] Fill out `typst.toml`
-  - See also the [typst/packages README](https://github.com/typst/packages/?tab=readme-ov-file#package-format)
-- [ ] Adapt Repository URLs in `CHANGELOG.md`
-  - Consider only committing that file with your first release, or removing the "Initial Release" part in the beginning
-- [ ] Adapt or deactivate the release workflow in `.github/workflows/release.yml`
-  - to deactivate it, delete that file or remove/comment out lines 2-4 (`on:` and following)
-  - to use the workflow
-    - [ ] check the values under `env:`, particularly `REGISTRY_REPO`
-    - [ ] if you don't have one, [create a fine-grained personal access token](https://github.com/settings/tokens?type=beta) with [only Contents permission](https://stackoverflow.com/a/75116350/371191) for the `REGISTRY_REPO`
-    - [ ] on this repo, create a secret `REGISTRY_TOKEN` (at `https://github.com/[user]/[repo]/settings/secrets/actions`) that contains the so created token
+![example-resume](https://raw.githubusercontent.com/austinyu/fantastic-cv/main/thumbnail.png)
 
-    if configured correctly, whenever you create a tag `v...`, your package will be pushed onto a branch on the `REGISTRY_REPO`, from which you can then create a pull request against [typst/packages](https://github.com/typst/packages/)
-- [ ] remove/replace the example test case
-- [ ] (add your actual code, docs and tests)
-- [ ] remove this section from the README
+## Getting Started 🚦
 
-## Getting Started
+This package contains a template for a resume. The workflow is to edit metadata about yourself and then compile the template to a PDF. Simple! 😃
 
-These instructions will get you a copy of the project up and running on the typst web app. Perhaps a short code example on importing the package and a very simple teaser usage.
+## Usage 🛠️
 
-```typ
-#import "@preview/my-package:0.1.0": *
+The template is incredibly comprehensive. You probably won't need all of the sections. Just choose the ones that are relevant to you. The template is also highly customizable, you can add additional sections through `custom_sections`. The sections of this template are compatible with the [JSON Resume](https://jsonresume.org/) project. Here are the sections that are included in the template:
 
-#show: my-show-rule.with()
-#my-func()
-```
+- **basics**: Your name, email, phone number, and other basic information. 👤
+- **work**: Your work experience, including job titles, companies, and dates. 💼
+- **volunteer**: Your volunteer experience, including organizations and dates. 🤝
+- **education**: Your education history, including degrees and institutions. 🎓
+- **awards**: Any awards or honors you've received. 🏆
+- **certificates**: Any certifications you've earned. 📜
+- **publications**: Any publications you've authored or co-authored. 📚
+- **custom_sections**: Any additional sections you want to include in your resume. 🧩
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./thumbnail-dark.svg">
-  <img src="./thumbnail-light.svg">
-</picture>
+The template also allows you to customize rendering related information, such as the font, colors, and layout. Simply search for `_render` to see all the variables that are used to render the template. If you like the template, please consider giving it a ⭐ on GitHub. If you have any questions or suggestions, feel free to open an issue or submit a pull request. Happy coding! 😄
 
-### Installation
+## Useful Links 🔗
 
-A step by step guide that will tell you how to get the development environment up and running. This should explain how to clone the repo and where to (maybe a link to the typst documentation on it), along with any pre-requisite software and installation steps.
-
-```
-$ First step
-$ Another step
-$ Final step
-```
-
-## Usage
-
-A more in-depth description of usage. Any template arguments? A complicated example that showcases most if not all of the functions the package provides? This is also an excellent place to signpost the manual.
-
-```typ
-#import "@preview/my-package:0.1.0": *
-
-#let my-complicated-example = ...
-```
-
-## Additional Documentation and Acknowledgments
-
-* Project folder on server:
-* Confluence link:
-* Asana board:
-* etc...
+- [GitHub Repository](https://github.com/austinyu/fantastic-cv) 🌟
+- [Issues](https://github.com/austinyu/fantastic-cv/issues) 🐞
