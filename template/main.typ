@@ -1,4 +1,4 @@
-#import "/src/lib.typ" as cv
+#import "@preview/fantastic-cv:0.1.0": *
 
 #let name = "Austin Yu"
 #let location = "Bay Area, CA"
@@ -432,7 +432,7 @@
 #let render_space_between_highlight = -0.5em
 #let render_space_between_sections = -0.5em
 
-#show: cv.config.with(
+#show: config.with(
   font: render_font,
   font_size: render_size,
   page_paper: render_page_paper,
@@ -442,7 +442,7 @@
   space_between_highlight: render_space_between_highlight,
 )
 
-#cv.section_basic_info(
+#section_basic_info(
   name: name,
   location: location,
   email: email,
@@ -451,18 +451,18 @@
   profiles: profiles,
 )
 
-#cv.section_education(educations)
+#section_education(educations)
 
-#cv.section_work(works)
+#section_work(works)
 
-#cv.section_project(projects)
+#section_project(projects)
 
-#cv.section_volunteer(volunteers)
+#section_volunteer(volunteers)
 
-#cv.section_award(awards)
+#section_award(awards)
 
-#cv.section_certificate(certificates)
+#section_certificate(certificates)
 
-#cv.section_publication(publications)
+#section_publication(publications)
 
-#cv.sections_custom(custom_sections)
+#sections_custom(custom_sections)
