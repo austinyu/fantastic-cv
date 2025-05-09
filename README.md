@@ -1,12 +1,12 @@
 # The `my-package` Package
 <div align="center">Version 0.1.0</div>
 
-A short description about the project and/or client.
+This is a template for a comprehensive and compact resume. Inspiration is taken from [basic-resume](https://typst.app/universe/package/basic-resume/). The data required to fill the template mirrors the data structure of the [JSON Resume](https://jsonresume.org/) project. The template is designed to be easily customizable, allowing users to modify the layout and design to suit their personal style.
 
 ## Template adaptation checklist
 
 - [ ] Fill out `README.md`
-  - Change the `my-package` package name, including code snippets
+  - Change the `fantastic-cv` package name, including code snippets
   - Check section contents and/or delete sections that don't apply
 - [ ] Check and/or replace `LICENSE` by something that suits your needs
 - [ ] Fill out `typst.toml`
