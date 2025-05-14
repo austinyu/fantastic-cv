@@ -145,57 +145,55 @@
 )
 
 /*
-[
-  {
-    title: str,
-    highlights: [
-      {
-        summary: str,
-        description: str,
-      }
-    ]
-  }
-]
+custom sections
+{
+  title: str,
+  highlights: [
+    {
+      summary: str,
+      description: str,
+    }
+  ]
+}
 */
-#let custom_sections = (
-  (
-    title: "Programming Languages",
-    highlights: (
-      (
-        summary: "Languages",
-        description: "Python, Java, C++, JavaScript, TypeScript",
-      ),
-      (
-        summary: "Frameworks",
-        description: "React, Node.js, Express, Flask, Django",
-      ),
-      (
-        summary: "Databases",
-        description: "MySQL, MongoDB, PostgreSQL",
-      ),
-      (
-        summary: "Tools",
-        description: "Git, Docker, Kubernetes, AWS, GCP",
-      )
+#let programming_language_section = (
+  title: "Programming Languages",
+  highlights: (
+    (
+      summary: "Languages",
+      description: "Python, Java, C++, JavaScript, TypeScript",
+    ),
+    (
+      summary: "Frameworks",
+      description: "React, Node.js, Express, Flask, Django",
+    ),
+    (
+      summary: "Databases",
+      description: "MySQL, MongoDB, PostgreSQL",
+    ),
+    (
+      summary: "Tools",
+      description: "Git, Docker, Kubernetes, AWS, GCP",
     )
-  ),
-  (
-    title: "Skills",
-    highlights: (
-      (
-        summary: "Soft Skills",
-        description: "Teamwork, Communication, Problem Solving, Time Management",
-      ),
-      (
-        summary: "Technical Skills",
-        description: "Data Structures, Algorithms, Software Development, Web Development",
-      ),
-      (
-        summary: "Languages",
-        description: "English (Fluent), Spanish (Conversational)",
-      )
+  )
+)
+
+#let skills_section = (
+  title: "Skills",
+  highlights: (
+    (
+      summary: "Soft Skills",
+      description: "Teamwork, Communication, Problem Solving, Time Management",
+    ),
+    (
+      summary: "Technical Skills",
+      description: "Data Structures, Algorithms, Software Development, Web Development",
+    ),
+    (
+      summary: "Languages",
+      description: "English (Fluent), Spanish (Conversational)",
     )
-  ),
+  )
 )
 
 #let render_font = "New Computer Modern"
@@ -238,4 +236,6 @@
 
 #cv.render-work(works)
 
-#cv.render-custom(custom_sections)
+#cv.render-custom(programming_language_section)
+
+#cv.render-custom(skills_section)
