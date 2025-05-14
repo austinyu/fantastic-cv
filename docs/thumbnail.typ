@@ -225,7 +225,7 @@
   space_between_highlight: render_space_between_highlight,
 )
 
-#cv.section_basic_info(
+#cv.render-basic-info(
   name: name,
   location: location,
   email: email,
@@ -234,8 +234,8 @@
   profiles: profiles,
 )
 
-#cv.section_education(educations)
+#cv.render-education(educations)
 
-#cv.section_work(works)
+#cv.render-work(works)
 
-#cv.sections_custom(custom_sections)
+#cv.render-award(custom_sections)
