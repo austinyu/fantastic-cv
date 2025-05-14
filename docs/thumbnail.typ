@@ -238,4 +238,4 @@
 
 #cv.render-work(works)
 
-#cv.render-award(custom_sections)
+#cv.render-custom(custom_sections)
