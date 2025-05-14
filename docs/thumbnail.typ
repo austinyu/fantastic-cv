@@ -215,12 +215,12 @@ custom sections
 
 #show: cv.config.with(
   font: render_font,
-  font_size: render_size,
-  page_paper: render_page_paper,
+  font-size: render_size,
+  page-paper: render_page_paper,
   margin: render_margin,
-  accent_color: render_accent_color,
-  space_between_sections: render_space_between_sections,
-  space_between_highlight: render_space_between_highlight,
+  accent-color: render_accent_color,
+  space-between-sections: render_space_between_sections,
+  space-between-highlight: render_space_between_highlight,
 )
 
 #cv.render-basic-info(
